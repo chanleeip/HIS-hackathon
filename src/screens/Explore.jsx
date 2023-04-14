@@ -101,14 +101,14 @@ export const Explore = () => {
                               (window.location.href = `/#/nft/${v.publicKey}`)
                           }
                       >
-                        <VStack width="full" alignItems="start" flexDirection={"flex-start"}>
-                          <HStack textAlign="center" alignItems="center">
-                            <FaFile />
-                            <Text fontSize={28}>{v.name}</Text>
+                        <VStack width="full" alignItems="center"  flexDirection={"column"} spacing={100} >
+                          <HStack alignItems="center" justifyContent="top">
+                            <FaFile fontSize={50} />
+                            <Text fontSize={50}>{v.name}</Text>
                           </HStack>
                           <HStack>
-                            <Text fontWeight="bold">Description: </Text>
-                            <Text fontWeight="light">{v.description}</Text>
+                            <Text fontWeight="bold" fontSize={60}>Description: </Text>
+                            <Text fontWeight="light" fontSize={30}>{v.description}</Text>
                           </HStack>
                         </VStack>
                       </Button>

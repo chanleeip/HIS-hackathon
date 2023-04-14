@@ -49,6 +49,7 @@ import {
 } from '../ipr';
 import * as borsh from 'borsh';
 import { Loader } from './Loader';
+import {red} from "@material-ui/core/colors";
 
 function getFileName(s) {
   const arr = s.split('/');
@@ -183,28 +184,30 @@ export const NFTPage = () => {
         {!nftDetails && <Loader />}
         {nftDetails && (
           <>
-            <HStack mb={50} alignItems="center">
+            <HStack alignItems="center" marginBottom={100}>
               <FaFile fontSize={29} />
-              <Heading>
-                {nftDetails.public ? nftDetails.name : 'Undisclosed Idea'}
+              <Heading paddingTop={-30} marginBottom={30}>
+                {nftDetails.public ? nftDetails.name : 'Unclosed Idea'}
               </Heading>
             </HStack>
-            <HStack width="full">
+            <HStack width="full" >
               <VStack
                 width="full"
                 alignItems="start"
                 justify="space-between"
-                spacing={5}
+                spacing={33}
+
+                fontSize={25}
               >
                 <HStack>
                   <Text fontWeight="bold">Owner Wallet: </Text>
                   <Text>{nftDetails.owner}</Text>
                 </HStack>
-                <HStack>
+                <HStack >
                   <Text fontWeight="bold">Date of upload: </Text>
                   <Text>{nftDetails.time}</Text>
                 </HStack>
-                <HStack>
+                <HStack >
                   <Text fontWeight="bold">Token: </Text>
                   <Text>{addr}</Text>
                 </HStack>
@@ -216,7 +219,7 @@ export const NFTPage = () => {
                         Looks like you are the owner of this NFT. Do you want to
                         make this idea public?
                       </Text>
-                      <Button onClick={onOpen}>Make it public!</Button>
+                      <Button marginTop={"30px"} size="lg" onClick={onOpen}>Make it public!</Button>
                     </>
                   )}
                 {nftDetails.public && (
