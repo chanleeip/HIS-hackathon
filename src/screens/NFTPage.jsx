@@ -66,12 +66,15 @@ export const NFTPage = () => {
   const [realName, setRealName] = useState('');
   const toast = useToast();
 
+  console.log(addr+"the token id");
+
   useEffect(() => {
     async function getData() {
       const greetedPubkey = new PublicKey(addr);
       const accountInfo = await connection.getAccountInfo(greetedPubkey);
       if (accountInfo === null) {
         setNftDetails({});
+        console.log(greetedPubkey);
         return;
       }
       const property = borsh.deserialize(
@@ -143,6 +146,7 @@ export const NFTPage = () => {
     onClose();
     setNftDetails({
       ...nftDetails,
+
       public: true,
       description: realData,
       verified: true,
@@ -310,5 +314,6 @@ export const NFTPage = () => {
         </ModalContent>
       </Modal>
     </>
+
   );
 };

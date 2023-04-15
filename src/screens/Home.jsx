@@ -1,13 +1,14 @@
 import React from 'react';
 import { Button, Heading, HStack, Image, VStack, Box} from '@chakra-ui/react';
-import ikbal from './ikbal.png';
+import ikbal from './undraw_mobile_search_p2ka.svg';
 import '../index.css'
 
 import { Link } from 'react-router-dom';
+import {WalletMultiButton} from "@solana/wallet-adapter-material-ui";
 
 export const Home = () => {
   return (
-    <Box p={10} bg={"rgb(255,195,0)"} >
+    <Box p={10}  >
       <HStack width="full">
         <VStack
           width="full"
@@ -20,12 +21,15 @@ export const Home = () => {
             Patents/Ideas as NFTs on Solana.
 
           </Heading>
-          <HStack>
+          <HStack spacing={20}>
             <Button size="lg" variant="outline" as={Link} to="/explore">
               Explore
             </Button>
             <Button size="lg" variant="solid" as={Link} to="/new">
               Create
+            </Button>
+            <Button size="lg" variant="solid" as={Link} to="/p_ideas">
+              Private ideas
             </Button>
           </HStack>
         </VStack>

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {
   Button,
   Heading,
@@ -10,6 +10,7 @@ import {
   useToast,
   Link as NativeLink,
 } from '@chakra-ui/react';
+
 import { FormControl, FormLabel, Input } from '@chakra-ui/react';
 import {
   Modal,
@@ -19,7 +20,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import marni from './marni.png';
+import marni from './undraw_fingerprint_login_re_t71l.svg';
 import hands from './hands.png';
 
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
@@ -39,6 +40,7 @@ import {
 import { useState } from 'react';
 import { FaExclamationCircle } from 'react-icons/fa';
 
+
 export const NewForm = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { connection } = useConnection();
@@ -46,15 +48,39 @@ export const NewForm = () => {
 
   const [description, setDescription] = useState('');
   const [newNftAddr, setNewNftAddr] = useState(null);
-  const [submitting, setSubmitting] = useState(false);
-
+  const [submitting, setSubmitting] = useState(false);;
   const toast = useToast();
+  const [the_original_public_key, setPublicKey] = useState("");
 
+
+// Get the public key for the connected wallet
+  const checkIfWalletIsConnected = async () => {
+    // We're using optional chaining (question mark) to check if the object is null
+    if (window?.solana?.isPhantom) {
+      console.log('Phantom wallet found!');
+      const response = await window.solana.connect({ onlyIfTrusted: true });
+      console.log(
+          'Connected with Public Key:',
+          response.publicKey.toString()
+      );
+      setPublicKey(response.publicKey.toString());
+    } else {
+      alert('Solana object not found! Get a Phantom Wallet 👻');
+    }
+  };
+  console.log(the_original_public_key)
+  useEffect(() => {
+    const onLoad = async () => {
+      await checkIfWalletIsConnected();
+    };
+    window.addEventListener('load', onLoad);
+    return () => window.removeEventListener('load', onLoad);
+  }, []);
   const onClick = useCallback(async () => {
     if (!publicKey) throw new WalletNotConnectedError();
     setSubmitting(true);
     const hash = await sha256(description);
-    console.log(hash);
+    console.log(hash+"The discription hashing");
 
     const newAccountPubkey = await PublicKey.createWithSeed(
       publicKey,
@@ -75,6 +101,7 @@ export const NewForm = () => {
       space: IntellectualProperty_Size,
       programId: program_id,
     });
+
 
     const transaction = new Transaction().add(instruction);
     try {
@@ -142,11 +169,26 @@ export const NewForm = () => {
     }
 
     setNewNftAddr(newAccountPubkey.toBase58());
-    console.log(newAccountPubkey.toBase58());
+    console.log(newAccountPubkey.toBase58()+"The original NFT key");
+    const better_key = newAccountPubkey.toBase58();
     onOpen();
     setSubmitting(false);
-  }, [publicKey, sendTransaction, connection, description, onOpen, toast]);
 
+    //For backend
+    const response = await fetch('/send_data',{
+      method : 'POST',
+      headers :{'Content-Type':'application/json'},
+      body:JSON.stringify({the_original_public_key, description, better_key})
+    });
+    const data = await response.json();
+    if (data.success){
+      console.log("Added Successfully");
+    } else{
+      console.log("passing Error from Backend");
+    }
+
+
+  }, [publicKey, sendTransaction, connection, description, onOpen, toast]);
   return (
     <>
       <VStack alignItems="start" spacing={20}>
@@ -165,21 +207,27 @@ export const NewForm = () => {
               </FormLabel>
               <Textarea
                 type="text"
-                placeholder="Write information to store in NFT"
+                placeholder="Write information to store in NFT.  *** Let the First Line Be Title Always ***"
                 fontSize={20}
                 value={description}
                 onChange={e => {
                   setDescription(e.target.value);
                 }}
                 height={400}
+                width={1000}
               />
             </FormControl>
+
             <HStack justify="space-between" width="full">
               <Button
                 bgColor="#FF5B37"
                 onClick={onClick}
                 isDisabled={!publicKey || description === '' || submitting}
                 isLoading={submitting}
+                width={300}
+                height={100}
+                size="xxxl"
+
               >
                 Mint NFT
               </Button>
@@ -192,7 +240,7 @@ export const NewForm = () => {
                     borderRadius={10}
                   >
                     <FaExclamationCircle color="#FF5B37" />
-                    <Text fontSize="sm" color="#FF5B37">
+                    <Text fontSize="md" color="#FF5B37">
                       Empty description
                     </Text>
                   </HStack>
@@ -205,7 +253,7 @@ export const NewForm = () => {
                     borderRadius={10}
                   >
                     <FaExclamationCircle color="#FF5B37" />
-                    <Text fontSize="sm" color="#FF5B37">
+                    <Text fontSize="x-large" color="#FF5B37">
                       Wallet not connected
                     </Text>
                   </HStack>
@@ -213,7 +261,7 @@ export const NewForm = () => {
               </HStack>
             </HStack>
           </VStack>
-          <Image src={marni} />
+          <Image  src={marni}/>
         </HStack>
       </VStack>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -231,7 +279,7 @@ export const NewForm = () => {
                 borderColor="gray.700"
                 width="70%"
               >
-                <Input type="email" value={newNftAddr} color="black" />
+                <Input type="email" value={newNftAddr} color="red" />
               </FormControl>
               <HStack width="70%" justify="space-between">
                 <Button
@@ -241,7 +289,7 @@ export const NewForm = () => {
                   download={newNftAddr + '.json'}
                   href={
                     'data:text/json;charset=utf-8,' +
-                    encodeURIComponent(JSON.stringify({ description }))
+                    encodeURIComponent(JSON.stringify({description }))
                   }
                 >
                   Download Keyfile
@@ -261,6 +309,8 @@ export const NewForm = () => {
           </ModalBody>
         </ModalContent>
       </Modal>
+      <Text>{description}</Text>
     </>
   );
 };
+

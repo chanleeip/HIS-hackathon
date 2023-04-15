@@ -1,9 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useMemo,useEffect } from 'react';
 import { ChakraProvider, Box, extendTheme } from '@chakra-ui/react';
 import { Navbar } from './screens/Navbar';
 import { NewForm } from './screens/Form';
 
 // solana imports
+import { useWallet } from '@solana/wallet-adapter-react';
 import {
   ConnectionProvider,
   WalletProvider,
@@ -24,6 +25,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Home } from './screens/Home';
 import { NFTPage } from './screens/NFTPage';
 import { Explore } from './screens/Explore';
+import { Pideas} from "./screens/private_ideas";
 
 const theme = extendTheme({
   config: {
@@ -51,7 +53,6 @@ const theme = extendTheme({
     },
   },
 });
-
 function App() {
   const wallets = useMemo(
     () => [
@@ -64,6 +65,7 @@ function App() {
     ],
     []
   );
+
   const endpoint = useMemo(() => clusterApiUrl('devnet'), []);
   return (
     <ChakraProvider theme={theme}>
@@ -84,13 +86,23 @@ function App() {
                   <NewForm />
                 </Route>
                 <Route path="/nft/:addr">
-                  <Navbar selected={2} />
+                  <Navbar selected={3} />
                   <NFTPage />
                 </Route>
                 <Route path="/explore">
                   <Navbar selected={2} />
                   <Explore />
                 </Route>
+              <Route path="/priv">
+                <Navbar selected={2} />
+                <Explore />
+              </Route>
+
+                <Route path="/p_ideas">
+                  <Navbar selected={4} />
+                  <Pideas />
+                </Route>
+
                 <Route path="/">
                   <Navbar selected={1} />
                   <Home />
@@ -102,6 +114,7 @@ function App() {
       </ConnectionProvider>
     </ChakraProvider>
   );
+
 }
 
 export default App;

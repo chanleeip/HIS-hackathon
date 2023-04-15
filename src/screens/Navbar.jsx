@@ -33,12 +33,19 @@ export const Navbar = ({ selected }) => {
           </Link>
         </Box>
         <Box borderBottomWidth={selected === 2 ? 2 : 0} borderColor="#FF5B37">
-          <Link to="/explore">
+          <Link to="/priv">
             <Text fontWeight="semibold" color="white">
               Explore
             </Text>
           </Link>
         </Box>
+        <Box borderBottomWidth={selected === 4 ? 2 : 0} borderColor="#FF5B37">
+          <Link to="/p_ideas">
+          <Text fontWeight="semibold" color="white">
+            Private Ideas
+          </Text>
+            </Link>
+      </Box>
         <Box borderBottomWidth={selected === 3 ? 2 : 0} borderColor="#FF5B37">
           <Link to="/new">
             <Text fontWeight="semibold" color="white">
@@ -46,7 +53,7 @@ export const Navbar = ({ selected }) => {
             </Text>
           </Link>
         </Box>
-        <WalletMultiButton />
+          <WalletMultiButton/>
       </HStack>
     </HStack>
   );

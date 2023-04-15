@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading, HStack, Image, VStack, Box, Button } from '@chakra-ui/react';
-import ikbal from './ikbal.png';
+
 import { Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaFile } from 'react-icons/fa';
@@ -101,9 +101,9 @@ export const Explore = () => {
                               (window.location.href = `/#/nft/${v.publicKey}`)
                           }
                       >
-                        <VStack width="full" alignItems="center"  flexDirection={"column"} spacing={100} >
+                        <VStack padding={100} width="full" alignItems="center"  flexDirection={"column"} spacing={100} >
                           <HStack alignItems="center" justifyContent="top">
-                            <FaFile fontSize={50} />
+                            <FaFile fontSize={100} />
                             <Text fontSize={50}>{v.name}</Text>
                           </HStack>
                           <HStack>
