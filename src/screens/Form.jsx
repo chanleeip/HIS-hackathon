@@ -309,7 +309,7 @@ export const NewForm = () => {
           </ModalBody>
         </ModalContent>
       </Modal>
-      <Text>{description}</Text>
+
       <pideas public_key ={the_original_public_key} />
     </>
   );

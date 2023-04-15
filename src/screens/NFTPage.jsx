@@ -221,6 +221,9 @@ export const NFTPage = () => {
                 borderColor={red}
                 fontSize={25}
               >
+                <Heading paddingTop={-30} marginBottom={30}>
+                 Idea-Description
+                </Heading>
                 <HStack>
                   <Text fontWeight="bold">Owner Wallet: </Text>
                   <Text>{nftDetails.owner}</Text>
