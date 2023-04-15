@@ -1,5 +1,5 @@
-import React, { useMemo,useEffect } from 'react';
-import { ChakraProvider, Box, extendTheme } from '@chakra-ui/react';
+import React, {useMemo, useEffect, useState} from 'react';
+import {ChakraProvider, Box, extendTheme, theme} from '@chakra-ui/react';
 import { Navbar } from './screens/Navbar';
 import { NewForm } from './screens/Form';
 
@@ -27,32 +27,38 @@ import { NFTPage } from './screens/NFTPage';
 import { Explore } from './screens/Explore';
 import { Pideas} from "./screens/private_ideas";
 
-const theme = extendTheme({
-  config: {
-    initialColorMode: 'dark',
-    useSystemColorMode: false,
-  },
-  components: {
-    Button: {
-      variants: {
-        // 4. We can override existing variants
-        solid: {
-          bg: '#FF5B37',
-          _hover: {
-            bg: '#FF5B37',
-          },
-        },
-        outline: {
-          borderColor: '#FF5B37',
-          color: '#FF5B37',
-          _hover: {
-            borderColor: '#FF5B37',
-          },
-        },
-      },
-    },
-  },
-});
+
+
+
+// const themee = extendTheme({
+//   config: {
+//     initialColorMode: 'dark',
+//     useSystemColorMode: false,
+//   },
+//   components: {
+//     Button: {
+//       variants: {
+//         // 4. We can override existing variants
+//         solid: {
+//           bg: '#3F51B5',
+//           color:'#212F3C',
+//           _hover: {
+//             bg: '#3F51B5',
+//           },
+//         },
+//         outline: {
+//           borderWidth:'3px',
+//           borderColor: '#212F3C',
+//           color: '#212F3C',
+//           _hover: {
+//             borderColor: '#212F3C',
+//           },
+//         },
+//       },
+//     },
+//   },
+// });
+
 function App() {
   const wallets = useMemo(
     () => [
@@ -65,8 +71,29 @@ function App() {
     ],
     []
   );
+  const [publickey, setPublicKey] = useState("");
+  // const checkIfWalletIsConnected = async () => {
+  //   // We're using optional chaining (question mark) to check if the object is null
+  //   if (window?.solana?.isPhantom) {
+  //     console.log('Phantom wallet found!');
+  //     const response = await window.solana.connect({ onlyIfTrusted: true });
+  //
+  //     setPublicKey(response.publicKey.toString());
+  //   } else {
+  //     alert('Solana object not found! Get a Phantom Wallet 👻');
+  //   }
+  // };
+  // console.log(publickey)
+  // useEffect(() => {
+  //   const onLoad = async () => {
+  //     await checkIfWalletIsConnected();
+  //   };
+  //   window.addEventListener('load', onLoad);
+  //   return () => window.removeEventListener('load', onLoad);
+  // }, []);
 
   const endpoint = useMemo(() => clusterApiUrl('devnet'), []);
+
   return (
     <ChakraProvider theme={theme}>
       <ConnectionProvider endpoint={endpoint}>
@@ -74,10 +101,11 @@ function App() {
           <WalletDialogProvider>
             <Box
               fontSize="xl"
-              backgroundColor="#020D27"
+              backgroundColor="#FFBF00 "
               width="full"
               height="100%"
               px={85}
+              textColor="#212F3C"
             >
               {/* <ColorModeSwitcher /> */}
               <Switch>
@@ -112,6 +140,7 @@ function App() {
           </WalletDialogProvider>
         </WalletProvider>
       </ConnectionProvider>
+
     </ChakraProvider>
   );
 

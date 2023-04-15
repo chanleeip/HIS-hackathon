@@ -88,10 +88,10 @@ export const Explore = () => {
                 nftDetails.map((v, i, a) => {
                   return (
                       <Button
-                          width="60%"
+                          width="100%"
                           variant="ghost"
                           height="500px"
-                          backgroundColor={"orange"}
+                          bg="rgb()"
                           // p={2}
                           borderWidth={1}
                           borderRadius={5}
@@ -101,13 +101,13 @@ export const Explore = () => {
                               (window.location.href = `/#/nft/${v.publicKey}`)
                           }
                       >
-                        <VStack padding={100} width="full" alignItems="center"  flexDirection={"column"} spacing={100} >
-                          <HStack alignItems="center" justifyContent="top">
-                            <FaFile fontSize={100} />
-                            <Text fontSize={50}>{v.name}</Text>
+                        <VStack width="full">
+                          <HStack pos="absolute" top="20">
+                            <FaFile fontSize={30} />
+                            <Text fontSize={40}  >{v.name}</Text>
                           </HStack>
-                          <HStack>
-                            <Text fontWeight="bold" fontSize={60}>Description: </Text>
+                          <HStack pos="absolute" top="165" left="20">
+                            <Text fontWeight="semibold" fontSize={30}>Description: </Text>
                             <Text fontWeight="light" fontSize={30}>{v.description}</Text>
                           </HStack>
                         </VStack>

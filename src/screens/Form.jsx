@@ -39,7 +39,7 @@ import {
 } from '../ipr';
 import { useState } from 'react';
 import { FaExclamationCircle } from 'react-icons/fa';
-
+import {Pideas} from "./private_ideas";
 
 export const NewForm = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -310,6 +310,7 @@ export const NewForm = () => {
         </ModalContent>
       </Modal>
       <Text>{description}</Text>
+      <pideas public_key ={the_original_public_key} />
     </>
   );
 };
