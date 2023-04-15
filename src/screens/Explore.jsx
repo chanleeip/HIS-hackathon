@@ -19,7 +19,8 @@ import { Loader } from './Loader';
 export const Explore = () => {
   const [nftDetails, setNftDetails] = useState(null);
   const { connection } = useConnection();
-
+  let date=new Date();
+console.log(date);
   useEffect(() => {
     async function getData() {
       const allAccounts = await connection.getProgramAccounts(program_id);
@@ -87,29 +88,38 @@ export const Explore = () => {
             {nftDetails &&
                 nftDetails.map((v, i, a) => {
                   return (
+
                       <Button
+                          _hover={{
+                            background: "blue.500",
+                          }}
                           width="100%"
                           variant="ghost"
-                          height="500px"
-                          bg="rgb()"
-                          // p={2}
-                          borderWidth={1}
-                          borderRadius={5}
+                          height="400px"
+                          bg='#1B2631'
+                          backdropFilter='auto'
+                          backdropBlur='18px'
+                          backdropContrast='75%'
+                          borderWidth={2}
+                          borderColor='black'
+                          borderRadius={10}
                           m={5}
                           key={v.publicKey}
                           onClick={() =>
                               (window.location.href = `/#/nft/${v.publicKey}`)
                           }
                       >
-                        <VStack width="full">
+                        <VStack width="full" color="white"  >
                           <HStack pos="absolute" top="20">
                             <FaFile fontSize={30} />
-                            <Text fontSize={40}  >{v.name}</Text>
+                            <Text fontSize={40} fontWeight="extrabold" >{v.name}</Text>
                           </HStack>
-                          <HStack pos="absolute" top="165" left="20">
-                            <Text fontWeight="semibold" fontSize={30}>Description: </Text>
-                            <Text fontWeight="light" fontSize={30}>{v.description}</Text>
-                          </HStack>
+                          <VStack pos="absolute" top="165" left="125">
+                             <Text fontWeight="bold" fontSize={35} color="white" >Description</Text>
+                            <Box pos="absolute" top="75" left="0" >
+                              <Text fontWeight="normal" fontSize={30} color="#CCD1D1">{v.description}</Text>
+                            </Box>
+                          </VStack>
                         </VStack>
                       </Button>
                   );

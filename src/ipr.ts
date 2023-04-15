@@ -97,7 +97,7 @@ export const IntellectualProperty_Size = borsh.serialize(
 ).length;
 
 export const program_id = new PublicKey(
-  '2ja5nYH7EfKfZuWSy7cZnR3WbG6K7XvqbNfnueVvJeeK'
+  'DwsDsdKQtg64vzTQNzM7b4jobnTt8sBeM4AXx8fuzswU'
 );
 const rpcUrl = 'https://localhost:8899';
 export const seed = '636g3'; //change the seed to be dynamic (seed could be the nft-name supplied by the user)

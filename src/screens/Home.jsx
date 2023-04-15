@@ -21,17 +21,6 @@ export const Home = () => {
             Patents/Ideas as NFTs on Solana.
 
           </Heading>
-          <HStack spacing={20}>
-            <Button size="lg" variant="outline" as={Link} to="/explore">
-              Explore
-            </Button>
-            <Button size="lg" variant="solid" as={Link} to="/new">
-              Create
-            </Button>
-            <Button size="lg" variant="solid" as={Link} to="/p_ideas">
-              Private ideas
-            </Button>
-          </HStack>
         </VStack>
         <Image src={ikbal} />
       </HStack>

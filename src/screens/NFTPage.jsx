@@ -1,4 +1,5 @@
 import React from 'react';
+import marxni from './patentts.svg'
 import {
   Button,
   Heading,
@@ -12,7 +13,7 @@ import {
   IconButton,
   useDisclosure,
   Textarea,
-  useToast,
+  useToast, Image,
 } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import { useState, useCallback } from 'react';
@@ -50,11 +51,14 @@ import {
 import * as borsh from 'borsh';
 import { Loader } from './Loader';
 import {red} from "@material-ui/core/colors";
+import marni from "./undraw_fingerprint_login_re_t71l.svg";
 
 function getFileName(s) {
   const arr = s.split('/');
   return arr[arr.length - 1];
 }
+
+
 
 export const NFTPage = () => {
   const { addr } = useParams();
@@ -67,6 +71,18 @@ export const NFTPage = () => {
   const toast = useToast();
 
   console.log(addr+"the token id");
+
+
+  function getDateOnly(dateStr) {
+    const dateObj = new Date(dateStr);
+    const year = dateObj.getFullYear();
+    const month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
+    const date = ('0' + dateObj.getDate()).slice(-2);
+    return `${year}-${month}-${date}`;
+  }
+
+
+
 
   useEffect(() => {
     async function getData() {
@@ -140,7 +156,9 @@ export const NFTPage = () => {
       ),
     });
 
-    const transaction2 = new Transaction().add(initAccount);
+
+
+      const transaction2 = new Transaction().add(initAccount);
     const signature2 = await sendTransaction(transaction2, connection);
     await connection.confirmTransaction(signature2, 'processed');
     onClose();
@@ -200,7 +218,7 @@ export const NFTPage = () => {
                 alignItems="start"
                 justify="space-between"
                 spacing={33}
-
+                borderColor={red}
                 fontSize={25}
               >
                 <HStack>
@@ -210,6 +228,10 @@ export const NFTPage = () => {
                 <HStack >
                   <Text fontWeight="bold">Date of upload: </Text>
                   <Text>{nftDetails.time}</Text>
+                </HStack>
+                <HStack >
+                  <Text fontWeight="bold">Date of Expiry: </Text>
+                  <Text>{getDateOnly(String( nftDetails.time))}</Text>
                 </HStack>
                 <HStack >
                   <Text fontWeight="bold">Token: </Text>
@@ -305,6 +327,7 @@ export const NFTPage = () => {
               leftIcon={<FaUpload />}
               mr={5}
             >
+              <Image  src={marxni}/>
               Fill from keyfile
             </Button>
             <Button variant="solid" color="white" onClick={onClick}>

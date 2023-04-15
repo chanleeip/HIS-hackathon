@@ -35,28 +35,7 @@ import { Pideas} from "./screens/private_ideas";
 //     initialColorMode: 'dark',
 //     useSystemColorMode: false,
 //   },
-//   components: {
-//     Button: {
-//       variants: {
-//         // 4. We can override existing variants
-//         solid: {
-//           bg: '#3F51B5',
-//           color:'#212F3C',
-//           _hover: {
-//             bg: '#3F51B5',
-//           },
-//         },
-//         outline: {
-//           borderWidth:'3px',
-//           borderColor: '#212F3C',
-//           color: '#212F3C',
-//           _hover: {
-//             borderColor: '#212F3C',
-//           },
-//         },
-//       },
-//     },
-//   },
+//
 // });
 
 function App() {
