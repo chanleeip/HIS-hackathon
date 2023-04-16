@@ -190,8 +190,8 @@ export const NewForm = () => {
 
   }, [publicKey, sendTransaction, connection, description, onOpen, toast]);
   return (
-    <>
-      <VStack alignItems="start" spacing={20}>
+      <>
+      <VStack alignItems="start" spacing={20} >
         <HStack width="full" height="full">
           <VStack
             width="full"
@@ -200,35 +200,38 @@ export const NewForm = () => {
             alignItems="start"
             alignContent="start"
           >
-            <Heading color="white">Store Your New Idea as NFT</Heading>
             <FormControl id="contents" isRequired>
-              <FormLabel color="white" fontSize={40}>
+              <FormLabel color="#1B2631" fontSize={35} fontWeight="bold" mb={10} >
                 Enter IPR Text to store in your NFT
               </FormLabel>
               <Textarea
                 type="text"
-                placeholder="Write information to store in NFT.  *** Let the First Line Be Title Always ***"
-                fontSize={20}
+                placeholder="Write information to store in NFT.       *** Let the First Line Be Title Always ***"
+                fontSize={25}
                 value={description}
                 onChange={e => {
                   setDescription(e.target.value);
                 }}
-                height={400}
+                height={300}
                 width={1000}
+                bg="#1B2631"
+                color="#D5D8DC"
+                fontWeight="bold"
               />
             </FormControl>
 
             <HStack justify="space-between" width="full">
               <Button
-                bgColor="#FF5B37"
+                bg="#1B2631"
+                color="white"
+                fontSize={20}
+                fontWeight="bold"
+                p={2}
+                _hover={{color:"#1B2631",bg:"white"}}
                 onClick={onClick}
                 isDisabled={!publicKey || description === '' || submitting}
                 isLoading={submitting}
-                width={300}
-                height={100}
-                size="xxxl"
-
-              >
+                width='10%'>
                 Mint NFT
               </Button>
               <HStack>

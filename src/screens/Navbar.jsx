@@ -20,7 +20,7 @@ export const Navbar = ({ selected }) => {
   return (
     <HStack justify="space-between" py={55} bg="#212F3C" bgClip="text" >
       <HStack pr={300} >
-        <Image src="/logo.png" height={39} />
+        <Image src="/logo1.png" height={39} />
         <Text fontSize={25} fontWeight="bold">
           IdeaNFTs
         </Text>
