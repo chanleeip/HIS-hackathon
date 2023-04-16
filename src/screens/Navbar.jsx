@@ -54,18 +54,20 @@ export const Navbar = ({ selected }) => {
               Create
             </Text>
               </Button>}position="bottom left">
-              <Box h="275px" w="full" bg="orange" p={4} >
+              <Box h="320px" w="full" bg="orange" p={4} >
+                <Text fontSize={20} fontWeight="bold" mb={5} >For Docs :</Text>
                <Button fontSize={20} fontWeight="bold" bg="transparent" mb={5} >
-                 Patent
+                 <a href="https://ipindia.gov.in/guidelines-patents.htm">Patent</a>
                </Button>
                 <Button fontSize={20} fontWeight="bold"bg="transparent" mb={5} >
-                  CopyWright
+                  <a href="https://www.copyright.gov.in/documents/handbook.html">CopyWright</a>
                 </Button>
                 <Button fontSize={20} fontWeight="bold" bg="transparent" mb={5} >
-                  Trademark
+                  <a href="https://ipindia.gov.in/trade-marks.htm">Trademark</a>
                 </Button>
                 <Button fontSize={20} fontWeight="bold" bg="transparent" mb={10} p={5}  >
-                  Intellectual <br/> property
+
+                  <a href="https://www.uscib.org/docs/BASCAP_IP_Guidelines.pdf#:~:text=Business%20Action%20to%20Stop%20Counterfeiting%20and%20Piracy%20%28BASCAP%29%2C,sourcing%2C%20manufacturing%2C%20wholesaling%2C%20retailing%20and%20internal%20corporate%20use">Intellectual <br/> property</a>
                 </Button>
               </Box>
             </Popup>
