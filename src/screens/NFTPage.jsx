@@ -1,5 +1,4 @@
 import React from 'react';
-import marxni from './patentts.svg'
 import {
   Button,
   Heading,
@@ -222,8 +221,8 @@ export const NFTPage = () => {
           <>
             <HStack alignItems="center" marginBottom={100}>
               <FaFile fontSize={29} />
-              <Heading paddingTop={-30} marginBottom={30}>
-                {nftDetails.public ? nftDetails.name : 'Unclosed Idea'}
+              <Heading >
+                {nftDetails.public ? nftDetails.name : 'Undisclosed Idea'}
               </Heading>
             </HStack>
             <HStack width="full" >
@@ -235,7 +234,10 @@ export const NFTPage = () => {
                 borderColor={red}
                 fontSize={25}
               >
-                <Heading paddingTop={-30} marginBottom={30}>
+                <Heading fontSize={30} PaddingBottom={30}  >
+                  Title and Short Description:
+                </Heading>
+                <Heading  PaddingBottom={30} >
                   {Nfttitle}
                 </Heading>
                 <HStack>
@@ -344,7 +346,7 @@ export const NFTPage = () => {
               leftIcon={<FaUpload />}
               mr={5}
             >
-              <Image  src={marxni}/>
+
               Fill from keyfile
             </Button>
             <Button variant="solid" color="white" onClick={onClick}>
