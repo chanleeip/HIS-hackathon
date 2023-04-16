@@ -8,8 +8,10 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import { WalletMultiButton } from '@solana/wallet-adapter-material-ui';
+import {orange} from "@material-ui/core/colors";
 
 export const Navbar = ({ selected }) => {
   const history = useHistory();
@@ -24,7 +26,7 @@ export const Navbar = ({ selected }) => {
         </Text>
       </HStack>
       <HStack justify="space-between" width="full">
-        <Box borderBottomWidth={selected === 1 ? 2 : 0} borderColor="black" >
+        <Box borderBottomWidth={selected === 1 ? 2 : 0} borderColor="black"  >
           <Link to="/">
             <Text fontSize={20} fontWeight="bold">
               Home
@@ -47,9 +49,26 @@ export const Navbar = ({ selected }) => {
       </Box>
         <Box borderBottomWidth={selected === 3 ? 2 : 0} borderColor="black">
           <Link to="/new">
-            <Text fontWeight="bold">
+            <Popup trigger={<Button bg="transparent" color="black" _hover={{bg:"transparent"}}>
+            <Text fontSize={20}  fontWeight="bold">
               Create
             </Text>
+              </Button>}position="bottom left">
+              <Box h="275px" w="full" bg="orange" p={4} >
+               <Button fontSize={20} fontWeight="bold" bg="transparent" mb={5} >
+                 Patent
+               </Button>
+                <Button fontSize={20} fontWeight="bold"bg="transparent" mb={5} >
+                  CopyWright
+                </Button>
+                <Button fontSize={20} fontWeight="bold" bg="transparent" mb={5} >
+                  Trademark
+                </Button>
+                <Button fontSize={20} fontWeight="bold" bg="transparent" mb={10} p={5}  >
+                  Intellectual <br/> property
+                </Button>
+              </Box>
+            </Popup>
           </Link>
         </Box>
           <WalletMultiButton/>

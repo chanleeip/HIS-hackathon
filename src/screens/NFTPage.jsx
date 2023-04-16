@@ -69,10 +69,24 @@ export const NFTPage = () => {
   const [realData, setRealData] = useState('');
   const [realName, setRealName] = useState('');
   const toast = useToast();
+  const [Nfttitle,setTitle] = useState('');
+  const [Nft_expire ,setNftexp] = useState('')
 
   console.log(addr+"the token id");
 
 
+  useEffect(()=>{
+    fetch('/title',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({addr})
+    })
+        .then(response=>response.json())
+        .then((data)=>{
+          setTitle(data.result);
+          setNftexp(data.exp);
+        });
+  },[]);
   function getDateOnly(dateStr) {
     const dateObj = new Date(dateStr);
     const year = dateObj.getFullYear();
@@ -222,7 +236,7 @@ export const NFTPage = () => {
                 fontSize={25}
               >
                 <Heading paddingTop={-30} marginBottom={30}>
-                 Idea-Description
+                  {Nfttitle}
                 </Heading>
                 <HStack>
                   <Text fontWeight="bold">Owner Wallet: </Text>
@@ -234,7 +248,7 @@ export const NFTPage = () => {
                 </HStack>
                 <HStack >
                   <Text fontWeight="bold">Date of Expiry: </Text>
-                  <Text>{getDateOnly(String( nftDetails.time))}</Text>
+                  <Text>{Nft_expire}</Text>
                 </HStack>
                 <HStack >
                   <Text fontWeight="bold">Token: </Text>

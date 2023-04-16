@@ -2,7 +2,7 @@
   "name": "ipr-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://192.168.215.54:5000/" ,
+  "proxy": "http://192.168.215.54:5000/",
   "dependencies": {
     "@chakra-ui/react": "^1.6.7",
     "@emotion/react": "^11.4.1",
@@ -25,6 +25,7 @@
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.1",
     "react-scripts": "4.0.3",
+    "reactjs-popup": "^2.0.5",
     "typescript": "^4.4.2",
     "web-vitals": "^0.2.4"
   },
