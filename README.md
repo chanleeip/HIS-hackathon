@@ -50,4 +50,11 @@ Past Owners
 
 We can Easliy Update to automatically Collect Royalties From Patents Using Smart-Contracts
 
+
+
+# How to Run The Project
+clone this repository
+'npm build'
+'npm start'
+
          
