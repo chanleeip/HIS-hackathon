@@ -1,0 +1,40 @@
+# Problem Statemt:
+                      You may get a lot of ideas like a Startup Idea , Business Idea, New Patent Idea or a New Algoithm For a Maths/Computer Problem. Till You Develop The Idea To start a Startup or To get a Patent . There is a chance fo the idea to get Stolen or to get Leaked to Public. In such Cases, If Someone Used your Idea and did something , There arises a Problem who Was the Real Owner of The Idea. In such Cases Our, IdeaNFT Helps....
+# Solution:
+### IdeaNFT helps such ideators by letting them add a "proof of idea" on the blockchain as a unique token without actually adding their idea in clear on it. When the ideator decides to publicise the idea, they can prove that they thought about the idea back (when they uploaded the proof) using the proof existing on the blockchain. 
+       We provides two guarantees-
+
+            When the ideator uploads the proof of idea, no-one can fetch the original idea just from the proof stored on the blockchain. The idea is not stored in plain on the chain before it is being made public.  
+
+            When the ideator tries to make their idea public, they cannot cheat by uploading a different idea than what they thought about back.
+
+         These Make Our Idea Safe And Secure while also proves the Ownership.
+
+
+# Working
+
+First, We Deployed The Smart Contract on [Solana Playground](https://beta.solpg.io) and Got the Program ID.
+
+Then We Created The FrontEnd Of the Dapp with React,TailwindCSS,Chakra UI Frameworks.
+
+We used Phantom Wallet Here.
+
+We Have Four Functionalites.
+            EXPLORE-To See all the Public Ideas/NFT on IdeaNFT
+            MY-IDEAS-To See all Private Ideas
+            Create- To Mint A New NFT For Your Idea
+
+# Uniquness: #
+        Everything Is Stored Decentralized and In blockchain So it Is very Safe and Secure and It cannot be Tampered with.
+
+Since we Use [CryptoGraphic Commitment Scheme](https://en.wikipedia.org/wikiCommitment_scheme) it is very Safe and Your Idea Is not Visible to Public Till You Make it Public. So Your Idea Stays Private
+
+        Using This Platform You can Exchange Ideas On our Platform in A low Transaction Fee Due to No Middle Man
+
+        We can Easily Integrate With Existing Patent/Copywright Issueing Organisations to Make Those Process More Streamlined and Cost-Effective
+
+        Since Every Transaction is Traceable, It is easy to Find the Owner of The Patent and Past Owners
+
+        We can Easliy Update to automatically Collect Royalties From Patents Using Smart-Contracts
+
+         
