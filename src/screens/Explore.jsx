@@ -73,7 +73,7 @@ console.log(date);
   }, [connection]);
 
   return (
-      <Box p={10}>
+      <Box p={8}>
         <HStack width="full" alignItems="center">
           <VStack
               width="full"
@@ -82,7 +82,7 @@ console.log(date);
               spacing={10}
           >
             <Heading fontSize={50} fontWeight="bold" pb={50}>
-              See what everyone is thinking!
+              See All the Public Ideas Stored On the Block-chain Here !!
             </Heading>
             {!nftDetails && <Loader />}
             {nftDetails &&
@@ -91,7 +91,7 @@ console.log(date);
 
                       <Button
                           _hover={{
-                            background: "blue.500",
+                            background: "brown",
                           }}
                           width="100%"
                           variant="ghost"

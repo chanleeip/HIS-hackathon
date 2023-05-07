@@ -202,21 +202,26 @@ export const NewForm = () => {
           >
             <FormControl id="contents" isRequired>
               <FormLabel color="#1B2631" fontSize={35} fontWeight="bold" mb={10} >
-                Enter IPR Text to store in your NFT
+                Enter Your Idea
               </FormLabel>
               <Textarea
                 type="text"
-                placeholder="Write information to store in NFT.       *** Let the First Line Be Title Always ***"
-                fontSize={25}
+                placeholder="*** Let the First Line Be Title Always ***"
+                fontSize={40}
                 value={description}
                 onChange={e => {
                   setDescription(e.target.value);
                 }}
-                height={300}
-                width={1000}
-                bg="#1B2631"
-                color="#D5D8DC"
+                height={400}
+                width={1100}
+                bg="white"
+                color="black"
                 fontWeight="bold"
+                css={{
+    "::placeholder": {
+      color: "black", // change the color value to whatever you'd like
+    },
+  }}
               />
             </FormControl>
 

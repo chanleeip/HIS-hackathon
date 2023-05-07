@@ -23,8 +23,9 @@ export const Pideas = () => {
     }
 
     return(
-        <div>
-            <Heading fontWeight='semibold' display="flex" justifyContent="center" fontSize={30} mb="10" mt="7">Paste the Wallet address below</Heading>
+        <div style={{paddingTop: '50px'}} >
+
+            <Heading fontWeight='semibold' display="flex" justifyContent="center" fontSize={50} mb="10" mt="7">Paste the Wallet address below</Heading>
             <Textarea
                 type="text"
                 fontSize={25}
@@ -33,8 +34,8 @@ export const Pideas = () => {
                     setPublic_Key(e.target.value);
                 }}
                 pos="absolute"
-                left="450"
-                height={5}
+                left="400"
+                height={10}
                 width="50%"
                 p={4}
                 fontWeight="bold"
@@ -43,11 +44,13 @@ export const Pideas = () => {
                 color="#D5D8DC"
                 bg="#1B2631"
                 overflow="hidden"
+
             />
             <br/>
+
             <Button
                pos="relative"
-               left="750"
+               left="680"
                top="95"
                 onClick={handleButtonClick}
                 p={8}
@@ -62,6 +65,7 @@ export const Pideas = () => {
                 overflow="hidden"
                 bg="transparent"
                 color="#1B2631"
+
             >
                 Get keys
             </Button>

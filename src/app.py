@@ -7,10 +7,9 @@ import datetime
 app=Flask(__name__)
 CORS(app)
 
-server = pymongo.MongoClient("mongodb://localhost:27017")
+server = pymongo.MongoClient("mongodb+srv://chanleeip4:nithin@cluster0.ulg7ukt.mongodb.net/?retryWrites=true&w=majority")
 Nft_DB = server['NFT']
 Nft_details = Nft_DB['Nft_details']
-
 
 @app.route('/send_data',methods=['POST'])
 def send_data():
@@ -43,4 +42,4 @@ def title_name():
 
 
 if __name__=="__main__":
-    app.run(debug=True, host="192.168.215.54")
+    app.run(debug=True)

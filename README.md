@@ -1,6 +1,6 @@
 # Problem Statemt:
 You may get a lot of ideas like a Startup Idea , Business Idea, 
-New Patent Idea or a New Algoithm For a Maths/Computer Problem. Till You Develop The Idea To 
+New Patent Idea or a New Algorithm For a Maths/Computer Problem. Till You Develop The Idea To 
 start a Startup or To get a Patent . There is a chance fo the idea to get Stolen or to get
 Leaked to Public. In such Cases, If Someone Used your Idea and did something , There arises a 
 Problem who Was the Real Owner of The Idea. In such Cases Our, IdeaNFT Helps....
@@ -26,7 +26,7 @@ Then We Created The FrontEnd Of the Dapp with React,TailwindCSS,Chakra UI Framew
 
 We used Phantom Wallet Here.
 
-We Have Four Functionalites.
+We Have Three Functionalites.
             EXPLORE-To See all the Public Ideas/NFT on IdeaNFT
             MY-IDEAS-To See all Private Ideas
             Create- To Mint A New NFT For Your Idea

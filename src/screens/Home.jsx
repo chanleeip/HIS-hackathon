@@ -17,9 +17,7 @@ export const Home = () => {
           spacing={0}
         >
           <Heading fontSize={50}  pb={50} >
-            Protect your Intellectual Property Rights using Blockchain. Create
-            Patents/Ideas as NFTs on Solana.
-
+            Store Your Ideas In the Blockchain For FutureProofing
           </Heading>
         </VStack>
         <Image src={ikbal} />
